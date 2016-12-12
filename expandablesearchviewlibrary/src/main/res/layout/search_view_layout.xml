@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/search_airport_linearLayout">
+
+    <RelativeLayout
+        android:id="@+id/suggestedAirportContainer"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@android:color/holo_red_dark"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/airport_search_item_layout_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            /><!--TODO: Make this custom-->
+
+        <EditText
+            android:id="@+id/search_editText"
+            android:layout_width="match_parent"
+            android:inputType="textNoSuggestions"
+            android:layout_height="40dp"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:background="@android:color/transparent"
+            tools:text="dddddddddddd"
+            android:layout_toRightOf="@+id/airport_search_item_layout_iv"
+            android:layout_toEndOf="@+id/airport_search_item_layout_iv"/>
+
+    </RelativeLayout>
+
+    <pl.piotrbandurski.expandablesearchview.views.SlidingExpandableListView
+        android:id="@+id/expandable_listview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:padding="2dp"
+        />
+
+</LinearLayout>
