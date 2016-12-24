@@ -10,6 +10,7 @@
     tools:context="pl.piotrbandurski.expandablesearchview.MainActivity">
 
     <pl.piotrbandurski.expandablesearchview.views.ExpandableSearchView
+        android:id="@+id/expandable_searchview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
