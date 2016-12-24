@@ -50,6 +50,10 @@ public class ExpandableSearchView extends BaseView {
 
     }
 
+    public void setmSearchText(String text){
+        mSearchEditText.setText(text);
+    }
+
     public void setOnListStateChangeListener(OnListStateChangeListener onListStateChangeListener) {
         mSlidingExpandableListView.setOnListStateChangeListener(onListStateChangeListener);
     }

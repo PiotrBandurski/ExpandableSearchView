@@ -5,5 +5,5 @@ package pl.piotrbandurski.expandablesearchview.listeners;
  */
 
 public interface OnQueryTextEnterListener {
-    void onQueryTextType(String query);
+    void onQueryTextTyped(String query);
 }
