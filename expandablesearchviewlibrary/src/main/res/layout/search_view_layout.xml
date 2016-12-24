@@ -39,7 +39,7 @@
     <pl.piotrbandurski.expandablesearchview.views.SlidingExpandableListView
         android:id="@+id/expandable_listview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:divider="@null"
         android:dividerHeight="0dp"
         android:padding="2dp"

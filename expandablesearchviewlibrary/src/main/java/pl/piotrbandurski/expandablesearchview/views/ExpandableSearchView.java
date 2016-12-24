@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import pl.piotrbandurski.expandablesearchview.listeners.OnListItemSelectedListener;
 import pl.piotrbandurski.expandablesearchview.listeners.OnListStateChangeListener;
@@ -23,6 +24,7 @@ public class ExpandableSearchView extends BaseView {
 
     SlidingExpandableListView mSlidingExpandableListView;
     EditText mSearchEditText;
+    ImageView mIconImageView;
     OnListStateChangeListener.ListState mActualState = OnListStateChangeListener.ListState.CLOSED;
     OnListItemSelectedListener mOnListItemSelectedListener;
     OnQueryTextEnterListener mOnQueryTextEnterListener;
@@ -40,6 +42,7 @@ public class ExpandableSearchView extends BaseView {
     void bindViews() {
         mSlidingExpandableListView = (SlidingExpandableListView) findViewById(R.id.expandable_listview);
         mSearchEditText = (EditText) findViewById(R.id.search_editText);
+        mIconImageView = (ImageView) findViewById(R.id.airport_search_item_layout_iv);
     }
 
     private void setupListeners() {
@@ -54,6 +57,7 @@ public class ExpandableSearchView extends BaseView {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 onListItemClick(position);
+                mSlidingExpandableListView.collapseList();
             }
         });
         mSearchEditText.addTextChangedListener(new TextWatcher() {
@@ -63,6 +67,7 @@ public class ExpandableSearchView extends BaseView {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 onSearchEditTextEntered(s.toString());
+                mSlidingExpandableListView.wrapList();
             }
             @Override
             public void afterTextChanged(Editable s) {
@@ -103,6 +108,10 @@ public class ExpandableSearchView extends BaseView {
 
     public void setSearchIcon(Drawable icon){
 
+    }
+
+    public void setSlidingDuration(int slidingDuration) {
+        mSlidingExpandableListView.setSlidingDuration(slidingDuration);
     }
 
     public void setOnListStateChangeListener(OnListStateChangeListener onListStateChangeListener) {

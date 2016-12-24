@@ -15,6 +15,7 @@ class SlidingExpandableListView extends ListView {
 
     OnListStateChangeListener onListStateChangeListener;
     int maxListHeightInPx = 300; //TODO create seter
+    public int slidingDuration = 500;
 
     public SlidingExpandableListView(Context context) {
         super(context);
@@ -32,12 +33,16 @@ class SlidingExpandableListView extends ListView {
         this.onListStateChangeListener = onListStateChangeListener;
     }
 
+    public void setSlidingDuration(int slidingDuration) {
+        this.slidingDuration = slidingDuration;
+    }
+
     public void expandListToMaxHeight() {
         if (getLayoutParams().height == maxListHeightInPx) {
             return;
         }
         ValueAnimator va = ValueAnimator.ofInt(getLayoutParams().height, maxListHeightInPx);
-        va.setDuration(500);
+        va.setDuration(slidingDuration);
         va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             public void onAnimationUpdate(ValueAnimator animation) {
                 Integer value = (Integer) animation.getAnimatedValue();
@@ -76,7 +81,7 @@ class SlidingExpandableListView extends ListView {
             return;
         }
         ValueAnimator va = ValueAnimator.ofInt(getLayoutParams().height, 0);
-        va.setDuration(500);
+        va.setDuration(slidingDuration);
         va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             public void onAnimationUpdate(ValueAnimator animation) {
                 Integer value = (Integer) animation.getAnimatedValue();
