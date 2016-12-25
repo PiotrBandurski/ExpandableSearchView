@@ -1,6 +1,7 @@
 package pl.piotrbandurski.expandablesearchview.views;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -33,6 +34,7 @@ public class ExpandableSearchView extends BaseView {
     public ExpandableSearchView(Context context, AttributeSet attrs) {
         super(context, attrs);
         attachView(R.layout.search_view_layout);
+        collectAttrs();
         setupListeners();
     }
 
@@ -64,11 +66,13 @@ public class ExpandableSearchView extends BaseView {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 onSearchEditTextEntered(s.toString());
                 mSlidingExpandableListView.wrapList();
             }
+
             @Override
             public void afterTextChanged(Editable s) {
             }
@@ -76,22 +80,38 @@ public class ExpandableSearchView extends BaseView {
 
     }
 
-    private void onListItemClick(int position){
-        if (mOnListItemSelectedListener == null){
+    private void onListItemClick(int position) {
+        if (mOnListItemSelectedListener == null) {
             return;
         }
         mOnListItemSelectedListener.onListItemSelected(position);
     }
 
-    private void onSearchEditTextEntered(String text){
-        if (mOnQueryTextEnterListener == null){
+    private void onSearchEditTextEntered(String text) {
+        if (mOnQueryTextEnterListener == null) {
             return;
         }
         mOnQueryTextEnterListener.onQueryTextTyped(text);
     }
 
     private void collectAttrs() {
+        TypedArray typedArray = mContext.obtainStyledAttributes(mAttributeSet, R.styleable.ExpandableSearchView);
 
+        int slidingDuration = typedArray.getInteger(R.styleable.ExpandableSearchView_slidingDuration, SlidingExpandableListView.DEFAULT_SLIDING_DURATION);
+        setSlidingDuration(slidingDuration);
+
+        int maxListHeight = typedArray.getDimensionPixelSize(R.styleable.ExpandableSearchView_maxListHeight, SlidingExpandableListView.DEFAULT_MAX_LIST_HEIGHT);
+        setMaxListHeightInPx(maxListHeight);
+
+        Drawable searchIcon = typedArray.getDrawable(R.styleable.ExpandableSearchView_searchIcon);
+        if (searchIcon != null){
+            setSearchIcon(searchIcon);
+        }
+
+        String searchHint  = typedArray.getString(R.styleable.ExpandableSearchView_searchHint);
+        setSearchHint(searchHint);
+
+        typedArray.recycle();
     }
 
     public void setOnListItemSelectedListener(OnListItemSelectedListener mOnListItemSelectedListener) {
@@ -102,16 +122,24 @@ public class ExpandableSearchView extends BaseView {
         this.mOnQueryTextEnterListener = mOnQueryTextEnterListener;
     }
 
-    public void setSearchText(String text){
+    public void setSearchText(String text) {
         mSearchEditText.setText(text);
     }
 
-    public void setSearchIcon(Drawable icon){
+    public void setSearchHint(String hint){
+        mSearchEditText.setHint(hint);
+    }
 
+    public void setSearchIcon(Drawable icon) {
+        mIconImageView.setImageDrawable(icon);
     }
 
     public void setSlidingDuration(int slidingDuration) {
         mSlidingExpandableListView.setSlidingDuration(slidingDuration);
+    }
+
+    public void setMaxListHeightInPx(int heightInPx){
+        mSlidingExpandableListView.setMaxListHeightInPx(heightInPx);
     }
 
     public void setOnListStateChangeListener(OnListStateChangeListener onListStateChangeListener) {

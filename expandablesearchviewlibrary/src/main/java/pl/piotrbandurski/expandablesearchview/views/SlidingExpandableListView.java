@@ -13,9 +13,12 @@ import pl.piotrbandurski.expandablesearchview.listeners.OnListStateChangeListene
  */
 class SlidingExpandableListView extends ListView {
 
+    public static final int DEFAULT_SLIDING_DURATION = 500;
+    public static final int DEFAULT_MAX_LIST_HEIGHT = 300;
+
     OnListStateChangeListener onListStateChangeListener;
-    int maxListHeightInPx = 300; //TODO create seter
-    public int slidingDuration = 500;
+    int maxListHeightInPx = DEFAULT_MAX_LIST_HEIGHT; //TODO create seter
+    public int slidingDuration = DEFAULT_SLIDING_DURATION;
 
     public SlidingExpandableListView(Context context) {
         super(context);
@@ -35,6 +38,10 @@ class SlidingExpandableListView extends ListView {
 
     public void setSlidingDuration(int slidingDuration) {
         this.slidingDuration = slidingDuration;
+    }
+
+    public void setMaxListHeightInPx(int maxListHeightInPx) {
+        this.maxListHeightInPx = maxListHeightInPx;
     }
 
     public void expandListToMaxHeight() {

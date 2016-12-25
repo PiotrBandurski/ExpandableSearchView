@@ -3,20 +3,11 @@
 
     <item
         is-multidex="true"
-        jar="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_8d6158e1a7670dbb15ff9743a636081893c12ab8/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
-        sha1="46b78dcc5dcf5b93b8a6f8bcc1d432f506316205">
+        sha1="aa3f3250e5ccea73630decc28b9a4939f5054c79">
         <dex dex="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_12e912753fb5648852b13d9a0f2b480e07f423bb/classes.dex" />
     </item>
     <item
@@ -30,48 +21,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.2.1_4f92f2a4fd5b78ead9d34fa943652973464ade65/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
         sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
         <dex dex="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_93b4d4cdc5ced5132a2ad876eea84487abee3980/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="b6ec59fc374cdda41af77ba50a1cb6c35b386faf">
-        <dex dex="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_42e6e66d3a46d3ee1b876fee890c1604fa7ee082/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_3cd50807ee1d92d8e0a2db423bb1eb191db865ae/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.1_8ecdc93dd9ce70d06b94fc141dd467348d7b5508/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -102,15 +57,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_b4f277cd08b192f2d0ea89d347feb5a16a9e7c87/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -120,21 +66,75 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.1_25b83eaed0d7719748ea601a281f79433dc2bda3/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
         sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
         <dex dex="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-24.2.1_63ed64eead460a48a61d1309be4e3eb0c3796a9f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_8d6158e1a7670dbb15ff9743a636081893c12ab8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.2.1_4f92f2a4fd5b78ead9d34fa943652973464ade65/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="e88f86ad0ced7572385dc1a5ccd7ddcd00b9b01d">
+        <dex dex="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_42e6e66d3a46d3ee1b876fee890c1604fa7ee082/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_3cd50807ee1d92d8e0a2db423bb1eb191db865ae/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.1_8ecdc93dd9ce70d06b94fc141dd467348d7b5508/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_b4f277cd08b192f2d0ea89d347feb5a16a9e7c87/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/Users/piotr/Documents/Projects/Android/ExpandableSearchView/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.1_25b83eaed0d7719748ea601a281f79433dc2bda3/classes.dex" />
     </item>
     <item
         is-multidex="true"
