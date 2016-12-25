@@ -4,6 +4,8 @@ import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
+import android.widget.Adapter;
 import android.widget.ListView;
 
 import pl.piotrbandurski.expandablesearchview.listeners.OnListStateChangeListener;
@@ -14,10 +16,10 @@ import pl.piotrbandurski.expandablesearchview.listeners.OnListStateChangeListene
 class SlidingExpandableListView extends ListView {
 
     public static final int DEFAULT_SLIDING_DURATION = 500;
-    public static final int DEFAULT_MAX_LIST_HEIGHT = 300;
+    public static final int DEFAULT_MAX_LIST_HEIGHT = 1000;
 
     OnListStateChangeListener onListStateChangeListener;
-    int maxListHeightInPx = DEFAULT_MAX_LIST_HEIGHT; //TODO create seter
+    int maxListHeightInPx = DEFAULT_MAX_LIST_HEIGHT;
     public int slidingDuration = DEFAULT_SLIDING_DURATION;
 
     public SlidingExpandableListView(Context context) {
@@ -48,7 +50,14 @@ class SlidingExpandableListView extends ListView {
         if (getLayoutParams().height == maxListHeightInPx) {
             return;
         }
-        ValueAnimator va = ValueAnimator.ofInt(getLayoutParams().height, maxListHeightInPx);
+        expandListToHeight(maxListHeightInPx);
+    }
+
+    private void expandListToHeight(int height){
+        if (getLayoutParams().height == height) {
+            return;
+        }
+        ValueAnimator va = ValueAnimator.ofInt(getLayoutParams().height, height);
         va.setDuration(slidingDuration);
         va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -80,7 +89,32 @@ class SlidingExpandableListView extends ListView {
     }
 
     public void wrapList() {
+        Adapter adapter = getAdapter();
+        if (adapter == null || adapter.getCount() == 0){
+            collapseList();
+            return;
+        }
+        int allItemsHeightInPx = getMeasuredHeightOfAllItemsInPx();
+        if (allItemsHeightInPx > maxListHeightInPx){
+            expandListToMaxHeight();
+        }else {
+            expandListToHeight(allItemsHeightInPx);
+        }
+    }
 
+    //I'm checking height of all elements instead of checking only one and multiple by items count
+    // becouse someone may wants to have different list views
+    private int getMeasuredHeightOfAllItemsInPx(){
+        int totalHeight = 0;
+        Adapter adapter = getAdapter();
+        for (int i = 0; i < adapter.getCount(); i++) {
+            View mView = adapter.getView(i, null, this);
+            mView.measure(
+                    MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),
+                    MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
+            totalHeight += mView.getMeasuredHeight();
+        }
+        return totalHeight;
     }
 
     public void collapseList() {
@@ -101,7 +135,6 @@ class SlidingExpandableListView extends ListView {
             public void onAnimationStart(Animator animator) {
                 changeActualState(OnListStateChangeListener.ListState.CLOSING);
             }
-
             @Override
             public void onAnimationEnd(Animator animator) {
                 changeActualState(OnListStateChangeListener.ListState.CLOSED);

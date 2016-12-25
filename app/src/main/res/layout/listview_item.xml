@@ -5,16 +5,17 @@
               android:layout_height="40dp"
               android:orientation="horizontal">
 
-    <ImageView
+    <pl.piotrbandurski.expandablesearchview.views.SquaredImageView
         android:id="@+id/sample_item_iv"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@mipmap/ic_launcher"/>
+        tools:src="@mipmap/ic_launcher"/>
 
     <TextView
         android:id="@+id/sample_item_tv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
+        android:layout_marginLeft="10dp"
         tools:text="Lore Ipsum"/>
 </LinearLayout>

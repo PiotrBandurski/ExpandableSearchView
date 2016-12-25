@@ -45,7 +45,7 @@ public class SampleDataProvider {
     }
 
     private static String getRandomText(){
-        String[] strings = {"Warsaw","Cracov","London","Berlin","London","Paris","New York"};
+        String[] strings = {"Warsaw","Warsaw1","Warsaw12","Warsaw123","Warsaw1234","Warsaw12345","Warsaw123456"};
         int randomIndex = new Random().nextInt(strings.length -1);
         return strings[randomIndex];
     }

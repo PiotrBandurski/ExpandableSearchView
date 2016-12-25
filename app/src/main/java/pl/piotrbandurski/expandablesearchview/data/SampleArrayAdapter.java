@@ -8,9 +8,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import pl.piotrbandurski.expandablesearchview.R;
+import pl.piotrbandurski.expandablesearchview.views.SquaredImageView;
 
 /**
  * Created by piotr on 24.12.2016.
@@ -18,8 +21,10 @@ import pl.piotrbandurski.expandablesearchview.R;
 
 public class SampleArrayAdapter extends ArrayAdapter<SampleDataObject> {
 
+    private Context mContext;
     public SampleArrayAdapter(Context context, int resource, List<SampleDataObject> objects) {
         super(context, -1, objects);
+        mContext = context;
     }
 
     @Override
@@ -33,18 +38,18 @@ public class SampleArrayAdapter extends ArrayAdapter<SampleDataObject> {
     }
 
     class ItemHolder {
-        ImageView itemImageView;
+        SquaredImageView itemImageView;
         TextView itemTextView;
         SampleDataObject mSampleDataObject;
 
         public ItemHolder(View view, SampleDataObject sampleDataObject) {
             mSampleDataObject = sampleDataObject;
-            itemImageView = (ImageView) view.findViewById(R.id.sample_item_iv);
+            itemImageView = (SquaredImageView) view.findViewById(R.id.sample_item_iv);
             itemTextView = (TextView) view.findViewById(R.id.sample_item_tv);
         }
 
         private void bindDataToViews(){
-            itemImageView.setImageResource(mSampleDataObject.getImage());
+            Picasso.with(mContext).load(mSampleDataObject.getImage()).into(itemImageView); //use picasso for better smoothness
             itemTextView.setText(mSampleDataObject.getText());
         }
 

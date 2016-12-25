@@ -24,4 +24,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.1.1'
     compile project(':expandablesearchviewlibrary')
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
 }
