@@ -64,7 +64,7 @@ public class ExpandableSearchView extends BaseView {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 onListItemClick(position);
-                mSlidingExpandableListView.collapseList();
+                collapseListView();
             }
         });
 

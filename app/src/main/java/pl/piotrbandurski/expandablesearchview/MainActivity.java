@@ -43,20 +43,12 @@ public class MainActivity extends AppCompatActivity implements OnQueryTextEnterL
             @Override
             public void onStateChange(ListState state) {
                 if (state == ListState.CLOSED){
-                    hideKeyboardWithDelay(); //With delay becouse on low-end devices sliding SearchView and hiding keyboard may be laggy
+                    hideKeyboard();
                 }
             }
         });
     }
 
-    private void hideKeyboardWithDelay(){
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                hideKeyboard();
-            }
-        }, 400);
-    }
 
     private void hideKeyboard() {
         View focused_item = getCurrentFocus();
