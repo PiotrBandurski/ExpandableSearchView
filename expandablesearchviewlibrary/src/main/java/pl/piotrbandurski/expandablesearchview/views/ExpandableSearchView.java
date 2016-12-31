@@ -70,7 +70,6 @@ public class ExpandableSearchView extends BaseView {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 onSearchEditTextEntered(s.toString());
-                mSlidingExpandableListView.wrapList();
             }
 
             @Override
@@ -111,6 +110,9 @@ public class ExpandableSearchView extends BaseView {
         String searchHint  = typedArray.getString(R.styleable.ExpandableSearchView_searchHint);
         setSearchHint(searchHint);
 
+        int singleItemHeight = typedArray.getDimensionPixelSize(R.styleable.ExpandableSearchView_singleItemHeight, Integer.MIN_VALUE);
+        mSlidingExpandableListView.setSingleItemHeight(singleItemHeight);
+
         typedArray.recycle();
     }
 
@@ -118,7 +120,7 @@ public class ExpandableSearchView extends BaseView {
         this.mOnListItemSelectedListener = mOnListItemSelectedListener;
     }
 
-    public void setmOnQueryTextEnterListener(OnQueryTextEnterListener mOnQueryTextEnterListener) {
+    public void setOnQueryTextEnterListener(OnQueryTextEnterListener mOnQueryTextEnterListener) {
         this.mOnQueryTextEnterListener = mOnQueryTextEnterListener;
     }
 
@@ -138,6 +140,10 @@ public class ExpandableSearchView extends BaseView {
         mSlidingExpandableListView.setSlidingDuration(slidingDuration);
     }
 
+    public void setSingleItemHeight(int singleItemHeight) {
+        mSlidingExpandableListView.setSingleItemHeight(singleItemHeight);
+    }
+
     public void setMaxListHeightInPx(int heightInPx){
         mSlidingExpandableListView.setMaxListHeightInPx(heightInPx);
     }
@@ -148,6 +154,7 @@ public class ExpandableSearchView extends BaseView {
 
     public <T> void setListViewAdapter(ArrayAdapter<T> adapter) {
         mSlidingExpandableListView.setAdapter(adapter);
+        mSlidingExpandableListView.wrapList();
     }
 
     public void expandListView() {

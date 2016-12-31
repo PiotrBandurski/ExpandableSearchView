@@ -6,6 +6,7 @@
               android:orientation="horizontal">
 
     <pl.piotrbandurski.expandablesearchview.views.SquaredImageView
+        android:padding="4dp"
         android:id="@+id/sample_item_iv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

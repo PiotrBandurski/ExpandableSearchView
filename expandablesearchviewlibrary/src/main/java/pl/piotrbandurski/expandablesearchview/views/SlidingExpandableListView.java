@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Adapter;
 import android.widget.ListView;
 
+import pl.piotrbandurski.expandablesearchview.exceptions.PropertyNotSetException;
 import pl.piotrbandurski.expandablesearchview.listeners.OnListStateChangeListener;
 
 /**
@@ -20,7 +21,8 @@ class SlidingExpandableListView extends ListView {
 
     OnListStateChangeListener onListStateChangeListener;
     int maxListHeightInPx = DEFAULT_MAX_LIST_HEIGHT;
-    public int slidingDuration = DEFAULT_SLIDING_DURATION;
+    int slidingDuration = DEFAULT_SLIDING_DURATION;
+    int singleItemHeight = Integer.MIN_VALUE;
 
     public SlidingExpandableListView(Context context) {
         super(context);
@@ -36,6 +38,10 @@ class SlidingExpandableListView extends ListView {
 
     public void setOnListStateChangeListener(OnListStateChangeListener onListStateChangeListener) {
         this.onListStateChangeListener = onListStateChangeListener;
+    }
+
+    public void setSingleItemHeight(int singleItemHeight) {
+        this.singleItemHeight = singleItemHeight;
     }
 
     public void setSlidingDuration(int slidingDuration) {
@@ -94,7 +100,7 @@ class SlidingExpandableListView extends ListView {
             collapseList();
             return;
         }
-        int allItemsHeightInPx = getMeasuredHeightOfAllItemsInPx();
+        int allItemsHeightInPx = getHeightOfAllItemsInPx();
         if (allItemsHeightInPx > maxListHeightInPx){
             expandListToMaxHeight();
         }else {
@@ -102,19 +108,16 @@ class SlidingExpandableListView extends ListView {
         }
     }
 
-    //I'm checking height of all elements instead of checking only one and multiple by items count
-    // becouse someone may wants to have different list views
-    private int getMeasuredHeightOfAllItemsInPx(){
-        int totalHeight = 0;
+
+    private int getHeightOfAllItemsInPx(){
         Adapter adapter = getAdapter();
-        for (int i = 0; i < adapter.getCount(); i++) {
-            View mView = adapter.getView(i, null, this);
-            mView.measure(
-                    MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),
-                    MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
-            totalHeight += mView.getMeasuredHeight();
+        if (adapter == null || adapter.getCount() == 0){
+            return 0;
         }
-        return totalHeight;
+        if(singleItemHeight == Integer.MIN_VALUE){
+            throw new PropertyNotSetException("set single item height in xml using: app:singleItemHeight=\"40dp\" or setSingleItemHeight() method ");
+        }
+        return adapter.getCount() * singleItemHeight;
     }
 
     public void collapseList() {

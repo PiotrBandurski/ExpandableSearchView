@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements OnQueryTextEnterL
     private void setupExpandableSearchView(){
         mExpandableSearchView = (ExpandableSearchView) findViewById(R.id.expandable_searchview);
         mExpandableSearchView.setOnListItemSelectedListener(this);
-        mExpandableSearchView.setmOnQueryTextEnterListener(this);
+        mExpandableSearchView.setOnQueryTextEnterListener(this);
         mAdapter = new SampleArrayAdapter(this,-1, SampleDataProvider.getSampleData());
         mExpandableSearchView.setListViewAdapter(mAdapter);
     }
