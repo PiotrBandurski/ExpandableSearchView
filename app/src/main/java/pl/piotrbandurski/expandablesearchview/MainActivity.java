@@ -21,7 +21,6 @@ import pl.piotrbandurski.expandablesearchview.views.ExpandableSearchView;
 public class MainActivity extends AppCompatActivity implements OnQueryTextEnterListener, OnListItemSelectedListener {
 
     ExpandableSearchView mExpandableSearchView;
-    List<SampleDataObject> sampleDataObjects;
     SampleArrayAdapter mAdapter;
 
 
@@ -31,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements OnQueryTextEnterL
         setContentView(R.layout.activity_main);
         setupExpandableSearchView();
     }
-
 
     private void setupExpandableSearchView(){
         mExpandableSearchView = (ExpandableSearchView) findViewById(R.id.expandable_searchview);
@@ -48,7 +46,6 @@ public class MainActivity extends AppCompatActivity implements OnQueryTextEnterL
             }
         });
     }
-
 
     private void hideKeyboard() {
         View focused_item = getCurrentFocus();
