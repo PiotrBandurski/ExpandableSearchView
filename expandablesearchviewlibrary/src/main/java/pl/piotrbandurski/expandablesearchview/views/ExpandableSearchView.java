@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import pl.piotrbandurski.expandablesearchview.listeners.OnListItemSelectedListener;
 import pl.piotrbandurski.expandablesearchview.listeners.OnListStateChangeListener;
@@ -26,9 +27,11 @@ public class ExpandableSearchView extends BaseView {
     SlidingExpandableListView mSlidingExpandableListView;
     EditText mSearchEditText;
     ImageView mIconImageView;
+    RelativeLayout mContainer;
     OnListStateChangeListener.ListState mActualState = OnListStateChangeListener.ListState.CLOSED;
     OnListItemSelectedListener mOnListItemSelectedListener;
     OnQueryTextEnterListener mOnQueryTextEnterListener;
+    private boolean isListOpened = false;
     private int maxListHeightInPx;
 
     public ExpandableSearchView(Context context, AttributeSet attrs) {
@@ -45,6 +48,7 @@ public class ExpandableSearchView extends BaseView {
         mSlidingExpandableListView = (SlidingExpandableListView) findViewById(R.id.expandable_listview);
         mSearchEditText = (EditText) findViewById(R.id.search_editText);
         mIconImageView = (ImageView) findViewById(R.id.airport_search_item_layout_iv);
+        mContainer = (RelativeLayout) findViewById(R.id.suggestedAirportContainer);
     }
 
     private void setupListeners() {
@@ -55,6 +59,7 @@ public class ExpandableSearchView extends BaseView {
                 return false;
             }
         });
+
         mSlidingExpandableListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
@@ -62,6 +67,7 @@ public class ExpandableSearchView extends BaseView {
                 mSlidingExpandableListView.collapseList();
             }
         });
+
         mSearchEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -77,6 +83,40 @@ public class ExpandableSearchView extends BaseView {
             }
         });
 
+        mContainer.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleSearchFieldClick();
+            }
+        });
+        mSearchEditText.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleSearchFieldClick();
+            }
+        });
+        mSearchEditText.setOnFocusChangeListener(new OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus){
+                    expandListView();
+                    isListOpened = true;
+                }else {
+                    collapseListView();
+                    isListOpened = false;
+                }
+            }
+        });
+    }
+
+
+
+    void handleSearchFieldClick(){
+        if (isListOpened){
+            collapseListView();
+        }else {
+            expandListView();
+        }
     }
 
     private void onListItemClick(int position) {
@@ -158,10 +198,12 @@ public class ExpandableSearchView extends BaseView {
     }
 
     public void expandListView() {
-        mSlidingExpandableListView.expandListToMaxHeight();
+        isListOpened = true;
+        mSlidingExpandableListView.wrapList();
     }
 
     public void collapseListView() {
+        isListOpened = false;
         mSlidingExpandableListView.collapseList();
     }
 }

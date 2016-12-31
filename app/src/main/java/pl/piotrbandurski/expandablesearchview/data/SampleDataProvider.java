@@ -29,6 +29,9 @@ public class SampleDataProvider {
     }
 
     public static List<SampleDataObject> searchDataByQuery(String query){ //Simple stupid function which mocks searching...
+        if (query == null || query.isEmpty()){
+            return getSampleData();
+        }
         List<SampleDataObject> listToReturn = new ArrayList<>();
         for (SampleDataObject sampleDataObject : getSampleData()){
             if (sampleDataObject.getText().toLowerCase().contains(query.toLowerCase())){
