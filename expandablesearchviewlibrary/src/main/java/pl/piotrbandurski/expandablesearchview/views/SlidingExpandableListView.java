@@ -108,7 +108,6 @@ class SlidingExpandableListView extends ListView {
         }
     }
 
-
     private int getHeightOfAllItemsInPx(){
         Adapter adapter = getAdapter();
         if (adapter == null || adapter.getCount() == 0){
@@ -119,7 +118,6 @@ class SlidingExpandableListView extends ListView {
         }
         return adapter.getCount() * singleItemHeight;
     }
-
 
     private void collapseListDueToEmptyAdapter(){
         if (getLayoutParams().height == 0) {
