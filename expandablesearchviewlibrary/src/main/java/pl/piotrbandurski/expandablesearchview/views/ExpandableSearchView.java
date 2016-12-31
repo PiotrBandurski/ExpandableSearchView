@@ -40,7 +40,7 @@ public class ExpandableSearchView extends BaseView {
         collectAttrs();
         setupListeners();
     }
-
+ 
     //I'm not using any binding libraries like ButterKnife
     //in this project to save number of methods
     @Override
