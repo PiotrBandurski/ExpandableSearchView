@@ -6,5 +6,6 @@
         <attr name="searchIcon" format="reference"/>
         <attr name="searchHint" format="string"/>
         <attr name="singleItemHeight" format="dimension"/>
+        <attr name="searchBackground" format="reference"/>
     </declare-styleable>
 </resources>

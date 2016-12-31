@@ -109,8 +109,6 @@ public class ExpandableSearchView extends BaseView {
         });
     }
 
-
-
     void handleSearchFieldClick(){
         if (isListOpened){
             collapseListView();
@@ -153,6 +151,10 @@ public class ExpandableSearchView extends BaseView {
         int singleItemHeight = typedArray.getDimensionPixelSize(R.styleable.ExpandableSearchView_singleItemHeight, Integer.MIN_VALUE);
         mSlidingExpandableListView.setSingleItemHeight(singleItemHeight);
 
+        Drawable background = typedArray.getDrawable(R.styleable.ExpandableSearchView_searchBackground);
+        if (background != null) {
+            mContainer.setBackgroundDrawable(background);
+        }
         typedArray.recycle();
     }
 

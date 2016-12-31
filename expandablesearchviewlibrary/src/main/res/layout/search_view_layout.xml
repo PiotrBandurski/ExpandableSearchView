@@ -20,7 +20,7 @@
             android:paddingTop="8dp"
             android:src="@drawable/search_icon"
             android:paddingBottom="8dp"
-            /><!--TODO: Make this custom-->
+            />
 
         <EditText
             android:id="@+id/search_editText"
