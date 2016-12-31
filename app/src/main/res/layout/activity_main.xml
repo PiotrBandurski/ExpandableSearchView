@@ -11,7 +11,29 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="pl.piotrbandurski.expandablesearchview.MainActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="Some Text "
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="Some Text 2"
+        android:id="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp" />
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/atom"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:id="@+id/imageView" />
 
     <pl.piotrbandurski.expandablesearchview.views.ExpandableSearchView
         android:id="@+id/expandable_searchview"
@@ -24,27 +46,5 @@
         app:singleItemHeight="40dp"
         />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Some button"
-        android:id="@+id/button"
-        android:layout_below="@+id/expandable_searchview"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="36dp"
-        android:layout_marginStart="36dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Some Text info here"
-        android:id="@+id/textView"
-        android:layout_alignBaseline="@+id/button"
-        android:layout_alignBottom="@+id/button"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="36dp"
-        android:layout_marginEnd="36dp" />
 
 </RelativeLayout>

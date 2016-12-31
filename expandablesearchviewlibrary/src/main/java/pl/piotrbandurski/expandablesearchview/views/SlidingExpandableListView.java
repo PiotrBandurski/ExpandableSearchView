@@ -97,7 +97,7 @@ class SlidingExpandableListView extends ListView {
     public void wrapList() {
         Adapter adapter = getAdapter();
         if (adapter == null || adapter.getCount() == 0){
-            collapseList();
+            collapseListDueToEmptyAdapter();
             return;
         }
         int allItemsHeightInPx = getHeightOfAllItemsInPx();
@@ -118,6 +118,23 @@ class SlidingExpandableListView extends ListView {
             throw new PropertyNotSetException("set single item height in xml using: app:singleItemHeight=\"40dp\" or setSingleItemHeight() method ");
         }
         return adapter.getCount() * singleItemHeight;
+    }
+
+
+    private void collapseListDueToEmptyAdapter(){
+        if (getLayoutParams().height == 0) {
+            return;
+        }
+        ValueAnimator va = ValueAnimator.ofInt(getLayoutParams().height, 0);
+        va.setDuration(slidingDuration);
+        va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            public void onAnimationUpdate(ValueAnimator animation) {
+                Integer value = (Integer) animation.getAnimatedValue();
+                getLayoutParams().height = value;
+                requestLayout();
+            }
+        });
+        va.start();
     }
 
     public void collapseList() {
