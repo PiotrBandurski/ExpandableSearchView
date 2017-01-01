@@ -74,23 +74,8 @@ Sliding:
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="pl.piotrbandurski.expandablesearchview.MainActivity">
-    
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:text="Some button"
-        android:id="@+id/button"
-        android:layout_marginTop="45dp"
-        android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:text="Some Text "
-        android:id="@+id/textView"
-        android:layout_below="@+id/button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="21dp" />
+
 
     <pl.piotrbandurski.expandablesearchview.views.ExpandableSearchView
         android:id="@+id/expandable_searchview"
@@ -102,5 +87,23 @@ Sliding:
         app:maxListHeight="200dp"
         app:singleItemHeight="40dp"
         />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:text="Some button"
+        android:id="@+id/button"
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/expandable_searchview"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="Some Text "
+        android:id="@+id/textView"
+        android:layout_marginTop="23dp"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
 ```
