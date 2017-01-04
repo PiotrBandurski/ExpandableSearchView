@@ -13,10 +13,10 @@
         android:background="@drawable/spinner_drawable"
         android:orientation="horizontal">
 
-        <pl.piotrbandurski.expandablesearchview.views.SquaredImageView
+        <ImageView
             android:id="@+id/airport_search_item_layout_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:paddingTop="8dp"
             android:src="@drawable/search_icon"
             android:paddingBottom="8dp"
