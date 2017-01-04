@@ -31,9 +31,10 @@
             android:clickable="true"
             android:background="@android:color/transparent"
             tools:text="dddddddddddd"
+            android:imeOptions="flagNoExtractUi"
             android:layout_toRightOf="@+id/airport_search_item_layout_iv"
             android:layout_toEndOf="@+id/airport_search_item_layout_iv"/>
 
     </RelativeLayout>
-    
+
 </LinearLayout>
