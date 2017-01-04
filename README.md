@@ -10,6 +10,7 @@ Installation:
     compile 'pl.piotrbandurski:expandablesearchviewlibrary:0.0.6-alpha'
 ```
 Possible xml customizations:<br>
+
 | Attribute       | Description           | Default Value  |
 | ------------- |:-------------:| :-----:|
 | app:slidingDuration     | Sliding duration| 500 |
@@ -18,6 +19,7 @@ Possible xml customizations:<br>
 | app:searchHint| Search Hint     |   "" |
 | app:singleItemHeight| Single List Item Height    |   Integer.Min_Value (Important to set this property!) |
 | app:searchBackground| Search view background     |   library background |
+
 
 You can choose efect sliding or overlaping using RelativeLayout in your layout:<br>
 Overlaping:
