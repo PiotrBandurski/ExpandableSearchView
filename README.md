@@ -9,7 +9,7 @@ Installation:
 ```java
     compile 'pl.piotrbandurski:expandablesearchviewlibrary:0.0.6-alpha'
 ```
-Possible customizations:<br>
+Possible xml customizations:<br>
 
 | Attribute       | Description           | Default Value  |
 | ------------- |:-------------:| :-----:|
