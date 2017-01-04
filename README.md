@@ -1,6 +1,6 @@
 # ExpandableSearchView
 
-ExpandableSearchView is an simple library for android which allows users to simple searching items. This view is a simple wrapper for ListView which handles all stuff like sliding wraping collapsing etc.
+ExpandableSearchView is library for android which allows users to simple searching items. This view is a smart wrapper for ListView which handles all stuff like sliding wraping collapsing etc.
 <p align="center">
 <img src="https://media.giphy.com/media/l0MYArGcYfm3wvMeQ/source.gif" width="30%"/> <img src="https://media.giphy.com/media/l0MYCXG5euuLzIHIY/source.gif" width="30%"/> 
 </p>
