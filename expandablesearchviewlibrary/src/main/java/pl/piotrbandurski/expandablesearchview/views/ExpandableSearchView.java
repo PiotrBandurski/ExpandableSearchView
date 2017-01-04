@@ -12,11 +12,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import pl.piotrbandurski.expandablesearchview.listeners.OnListItemSelectedListener;
 import pl.piotrbandurski.expandablesearchview.listeners.OnListStateChangeListener;
 import pl.piotrbandurski.expandablesearchview.listeners.OnQueryTextEnterListener;
+import pl.piotrbandurski.expandablesearchview.tools.ScreenUtils;
 import pl.piotrbandurski.expandablesearchviewlibrary.R;
 
 /**
@@ -24,15 +26,15 @@ import pl.piotrbandurski.expandablesearchviewlibrary.R;
  */
 public class ExpandableSearchView extends BaseView {
 
-    SlidingExpandableListView mSlidingExpandableListView;
+    SlidingListView mSlidingListView;
     EditText mSearchEditText;
     ImageView mIconImageView;
-    RelativeLayout mContainer;
+    LinearLayout mContainerLinearLayout;
+    RelativeLayout mSearchContainer;
     OnListStateChangeListener.ListState mActualState = OnListStateChangeListener.ListState.CLOSED;
     OnListItemSelectedListener mOnListItemSelectedListener;
     OnQueryTextEnterListener mOnQueryTextEnterListener;
     private boolean isListOpened = false;
-    private int maxListHeightInPx;
 
     public ExpandableSearchView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -40,19 +42,26 @@ public class ExpandableSearchView extends BaseView {
         collectAttrs();
         setupListeners();
     }
- 
+
     //I'm not using any binding libraries like ButterKnife
     //in this project to save number of methods
     @Override
     void bindViews() {
-        mSlidingExpandableListView = (SlidingExpandableListView) findViewById(R.id.expandable_listview);
         mSearchEditText = (EditText) findViewById(R.id.search_editText);
         mIconImageView = (ImageView) findViewById(R.id.airport_search_item_layout_iv);
-        mContainer = (RelativeLayout) findViewById(R.id.suggestedAirportContainer);
+        mSearchContainer = (RelativeLayout) findViewById(R.id.suggestedAirportContainer);
+        mContainerLinearLayout = (LinearLayout) findViewById(R.id.search_airport_linearLayout);
+        insertSlidingListviewToContainer();
+    }
+
+    private void insertSlidingListviewToContainer(){ //i'm doing this instead of adding it in xml for hide SlidingListView for final developer
+        mSlidingListView = new SlidingListViewImpl(getContext(), mAttributeSet);
+        mSlidingListView.setupView();
+        mContainerLinearLayout.addView(mSlidingListView);
     }
 
     private void setupListeners() {
-        mSlidingExpandableListView.setOnTouchListener(new OnTouchListener() {
+        mSlidingListView.setOnTouchListener(new OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) { // little workaround if someone will want to have this view inside scrollview
                 v.getParent().requestDisallowInterceptTouchEvent(true);
@@ -60,7 +69,7 @@ public class ExpandableSearchView extends BaseView {
             }
         });
 
-        mSlidingExpandableListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mSlidingListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 onListItemClick(position);
@@ -83,7 +92,7 @@ public class ExpandableSearchView extends BaseView {
             }
         });
 
-        mContainer.setOnClickListener(new OnClickListener() {
+        mSearchContainer.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 handleSearchFieldClick();
@@ -132,12 +141,12 @@ public class ExpandableSearchView extends BaseView {
     }
 
     private void collectAttrs() {
-        TypedArray typedArray = mContext.obtainStyledAttributes(mAttributeSet, R.styleable.ExpandableSearchView);
+        TypedArray typedArray = getContext().obtainStyledAttributes(mAttributeSet, R.styleable.ExpandableSearchView);
 
-        int slidingDuration = typedArray.getInteger(R.styleable.ExpandableSearchView_slidingDuration, SlidingExpandableListView.DEFAULT_SLIDING_DURATION);
+        int slidingDuration = typedArray.getInteger(R.styleable.ExpandableSearchView_slidingDuration, SlidingListView.DEFAULT_SLIDING_DURATION);
         setSlidingDuration(slidingDuration);
 
-        int maxListHeight = typedArray.getDimensionPixelSize(R.styleable.ExpandableSearchView_maxListHeight, SlidingExpandableListView.DEFAULT_MAX_LIST_HEIGHT);
+        int maxListHeight = typedArray.getDimensionPixelSize(R.styleable.ExpandableSearchView_maxListHeight, SlidingListView.DEFAULT_MAX_LIST_HEIGHT);
         setMaxListHeightInPx(maxListHeight);
 
         Drawable searchIcon = typedArray.getDrawable(R.styleable.ExpandableSearchView_searchIcon);
@@ -149,11 +158,11 @@ public class ExpandableSearchView extends BaseView {
         setSearchHint(searchHint);
 
         int singleItemHeight = typedArray.getDimensionPixelSize(R.styleable.ExpandableSearchView_singleItemHeight, Integer.MIN_VALUE);
-        mSlidingExpandableListView.setSingleItemHeight(singleItemHeight);
+        mSlidingListView.setSingleItemHeight(singleItemHeight);
 
         Drawable background = typedArray.getDrawable(R.styleable.ExpandableSearchView_searchBackground);
         if (background != null) {
-            mContainer.setBackgroundDrawable(background);
+            mSearchContainer.setBackgroundDrawable(background);
         }
         typedArray.recycle();
     }
@@ -179,33 +188,49 @@ public class ExpandableSearchView extends BaseView {
     }
 
     public void setSlidingDuration(int slidingDuration) {
-        mSlidingExpandableListView.setSlidingDuration(slidingDuration);
+        mSlidingListView.setSlidingDuration(slidingDuration);
     }
 
     public void setSingleItemHeight(int singleItemHeight) {
-        mSlidingExpandableListView.setSingleItemHeight(singleItemHeight);
+        mSlidingListView.setSingleItemHeight(singleItemHeight);
     }
 
     public void setMaxListHeightInPx(int heightInPx){
-        mSlidingExpandableListView.setMaxListHeightInPx(heightInPx);
+        mSlidingListView.setMaxListHeightInPx(heightInPx);
     }
 
     public void setOnListStateChangeListener(OnListStateChangeListener onListStateChangeListener) {
-        mSlidingExpandableListView.setOnListStateChangeListener(onListStateChangeListener);
+        mSlidingListView.setOnListStateChangeListener(onListStateChangeListener);
     }
 
     public <T> void setListViewAdapter(ArrayAdapter<T> adapter) {
-        mSlidingExpandableListView.setAdapter(adapter);
-        mSlidingExpandableListView.wrapList();
+        mSlidingListView.setAdapter(adapter);
+        mSlidingListView.wrapList();
     }
 
     public void expandListView() {
         isListOpened = true;
-        mSlidingExpandableListView.wrapList();
+        mSlidingListView.wrapList();
     }
 
     public void collapseListView() {
         isListOpened = false;
-        mSlidingExpandableListView.collapseList();
+        mSlidingListView.collapseList();
     }
+
+    private static class SlidingListViewImpl extends SlidingListView{
+
+        public SlidingListViewImpl(Context context) {
+            super(context);
+        }
+
+        public SlidingListViewImpl(Context context, AttributeSet attrs) {
+            super(context, attrs);
+        }
+
+        public SlidingListViewImpl(Context context, AttributeSet attrs, int defStyleAttr) {
+            super(context, attrs, defStyleAttr);
+        }
+    }
+
 }

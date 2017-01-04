@@ -9,29 +9,28 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import pl.piotrbandurski.expandablesearchview.tools.ScreenUtils;
+
 /**
  * Created by piotr on 30.08.2016.
  */
 abstract class BaseView extends LinearLayout {
 
-    protected Context mContext;
     protected AttributeSet mAttributeSet;
 
     public BaseView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        this.mContext = context;
         this.mAttributeSet = attrs;
     }
 
     public BaseView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        this.mContext = context;
         this.mAttributeSet = attrs;
     }
 
     protected void attachView(int resId) {
-        ViewGroup mContent = new RelativeLayout(mContext, mAttributeSet);
-        LayoutInflater inflater = LayoutInflater.from(mContext);
+        ViewGroup mContent = new RelativeLayout(getContext(), mAttributeSet);
+        LayoutInflater inflater = LayoutInflater.from(getContext());
         inflater.inflate(resId, mContent);
         addView(mContent);
         bindViews();

@@ -1,5 +1,30 @@
 apply plugin: 'com.android.library'
 
+ext {
+    bintrayRepo = 'ExpandableSearchView'
+    bintrayName = 'expandablesearchviewlibrary'
+
+    publishedGroupId = 'pl.piotrbandurski'
+    libraryName = 'ExpandableSearchView'
+    artifact = 'expandablesearchviewlibrary'
+
+    libraryDescription = ''
+
+    siteUrl = 'https://github.com/PiotrBandurski/ExpandableSearchView'
+    gitUrl = 'https://github.com/PiotrBandurski/ExpandableSearchView.git'
+
+    libraryVersion = '0.0.4-alpha'
+
+    developerId = 'piotrbandurski'
+    developerName = 'Piotr Bandurski'
+    developerEmail = 'zielpak@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.1"
@@ -23,3 +48,5 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
 }
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'

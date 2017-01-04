@@ -10,11 +10,13 @@ import android.widget.ListView;
 
 import pl.piotrbandurski.expandablesearchview.exceptions.PropertyNotSetException;
 import pl.piotrbandurski.expandablesearchview.listeners.OnListStateChangeListener;
+import pl.piotrbandurski.expandablesearchview.tools.ScreenUtils;
+import pl.piotrbandurski.expandablesearchviewlibrary.R;
 
 /**
  * Created by piotr on 30.08.2016.
  */
-class SlidingExpandableListView extends ListView {
+abstract class SlidingListView extends ListView {
 
     public static final int DEFAULT_SLIDING_DURATION = 500;
     public static final int DEFAULT_MAX_LIST_HEIGHT = 1000;
@@ -24,16 +26,25 @@ class SlidingExpandableListView extends ListView {
     int slidingDuration = DEFAULT_SLIDING_DURATION;
     int singleItemHeight = Integer.MIN_VALUE;
 
-    public SlidingExpandableListView(Context context) {
+    public SlidingListView(Context context) {
         super(context);
     }
 
-    public SlidingExpandableListView(Context context, AttributeSet attrs) {
+    public SlidingListView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public SlidingExpandableListView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SlidingListView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+    }
+
+    public void setupView(){                                            //instead of xml
+        setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, 0));
+        setBackgroundResource(R.drawable.spinner_list_background);
+        setDivider(null);
+        setDividerHeight(0);
+        int _2dp = (int) ScreenUtils.convertDpToPixel(2, getContext());
+        setPadding(_2dp,_2dp,_2dp,_2dp);
     }
 
     public void setOnListStateChangeListener(OnListStateChangeListener onListStateChangeListener) {
