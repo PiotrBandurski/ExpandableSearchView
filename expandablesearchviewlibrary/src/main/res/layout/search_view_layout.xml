@@ -35,15 +35,5 @@
             android:layout_toEndOf="@+id/airport_search_item_layout_iv"/>
 
     </RelativeLayout>
-
-<!--    <pl.piotrbandurski.expandablesearchview.views.SlidingExpandableListView
-        android:id="@+id/expandable_listview"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@drawable/spinner_list_background"
-        android:divider="@null"
-        android:dividerHeight="0dp"
-        android:padding="2dp"
-        />-->
-
+    
 </LinearLayout>
