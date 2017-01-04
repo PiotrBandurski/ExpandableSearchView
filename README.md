@@ -17,7 +17,7 @@ Possible xml customizations:<br>
 | app:maxListHeight     | Max Sliding List height in dp | 10000px|
 | app:searchIcon| Search Icon     |    library icon |
 | app:searchHint| Search Hint     |   "" |
-| app:singleItemHeight| Single List Item Height    |   Integer.Min_Value !important to set this property |
+| app:singleItemHeight| Single List Item Height    |   Integer.Min_Value (Important to set this property!) |
 | app:searchBackground| Search view background     |   library background |
 
 
