@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/PiotrBandurski/ExpandableSearchView'
     gitUrl = 'https://github.com/PiotrBandurski/ExpandableSearchView.git'
 
-    libraryVersion = '0.0.5-alpha'
+    libraryVersion = '0.0.6-alpha'
 
     developerId = 'piotrbandurski'
     developerName = 'Piotr Bandurski'
