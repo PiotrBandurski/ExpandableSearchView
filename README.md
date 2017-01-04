@@ -1,16 +1,15 @@
 # ExpandableSearchView
 
 ExpandableSearchView is an simple library for android which allows users to simple searching items. This view is a simple wrapper for ListView which handles all stuff like sliding wraping collapsing etc.
-
+<p align="center">
 <img src="https://media.giphy.com/media/l0MYArGcYfm3wvMeQ/source.gif" width="30%"/> <img src="https://media.giphy.com/media/l0MYCXG5euuLzIHIY/source.gif" width="30%"/> 
-
+</p>
 <br>
 Installation:
 ```java
     compile 'pl.piotrbandurski:expandablesearchviewlibrary:0.0.6-alpha'
 ```
 Possible xml customizations:<br>
-
 | Attribute       | Description           | Default Value  |
 | ------------- |:-------------:| :-----:|
 | app:slidingDuration     | Sliding duration| 500 |
@@ -19,7 +18,6 @@ Possible xml customizations:<br>
 | app:searchHint| Search Hint     |   "" |
 | app:singleItemHeight| Single List Item Height    |   Integer.Min_Value (Important to set this property!) |
 | app:searchBackground| Search view background     |   library background |
-
 
 You can choose efect sliding or overlaping using RelativeLayout in your layout:<br>
 Overlaping:
