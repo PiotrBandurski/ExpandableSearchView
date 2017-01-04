@@ -1,4 +1,4 @@
-package pl.piotrbandurski.expandablesearchview.views;
+package pl.piotrbandurski.expandablesearchview;
 
 import android.content.Context;
 import android.util.AttributeSet;

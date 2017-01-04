@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -13,7 +12,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import pl.piotrbandurski.expandablesearchview.R;
-import pl.piotrbandurski.expandablesearchview.views.SquaredImageView;
+import pl.piotrbandurski.expandablesearchview.SquaredImageView;
 
 /**
  * Created by piotr on 24.12.2016.

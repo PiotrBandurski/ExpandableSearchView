@@ -54,8 +54,8 @@ public class ExpandableSearchView extends BaseView {
         insertSlidingListviewToContainer();
     }
 
-    private void insertSlidingListviewToContainer(){ //i'm doing this instead of adding it in xml for hide SlidingListView for final developer
-        mSlidingListView = new SlidingListViewImpl(getContext(), mAttributeSet);
+    private void insertSlidingListviewToContainer() { //i'm doing this instead of adding it in xml for hide SlidingListView for final developer
+        mSlidingListView = provideSlidingListView();
         mSlidingListView.setupView();
         mContainerLinearLayout.addView(mSlidingListView);
     }
@@ -107,10 +107,10 @@ public class ExpandableSearchView extends BaseView {
         mSearchEditText.setOnFocusChangeListener(new OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus){
+                if (hasFocus) {
                     expandListView();
                     isListOpened = true;
-                }else {
+                } else {
                     collapseListView();
                     isListOpened = false;
                 }
@@ -118,10 +118,10 @@ public class ExpandableSearchView extends BaseView {
         });
     }
 
-    void handleSearchFieldClick(){
-        if (isListOpened){
+    void handleSearchFieldClick() {
+        if (isListOpened) {
             collapseListView();
-        }else {
+        } else {
             expandListView();
         }
     }
@@ -150,11 +150,11 @@ public class ExpandableSearchView extends BaseView {
         setMaxListHeightInPx(maxListHeight);
 
         Drawable searchIcon = typedArray.getDrawable(R.styleable.ExpandableSearchView_searchIcon);
-        if (searchIcon != null){
+        if (searchIcon != null) {
             setSearchIcon(searchIcon);
         }
 
-        String searchHint  = typedArray.getString(R.styleable.ExpandableSearchView_searchHint);
+        String searchHint = typedArray.getString(R.styleable.ExpandableSearchView_searchHint);
         setSearchHint(searchHint);
 
         int singleItemHeight = typedArray.getDimensionPixelSize(R.styleable.ExpandableSearchView_singleItemHeight, Integer.MIN_VALUE);
@@ -179,7 +179,7 @@ public class ExpandableSearchView extends BaseView {
         mSearchEditText.setText(text);
     }
 
-    public void setSearchHint(String hint){
+    public void setSearchHint(String hint) {
         mSearchEditText.setHint(hint);
     }
 
@@ -195,7 +195,7 @@ public class ExpandableSearchView extends BaseView {
         mSlidingListView.setSingleItemHeight(singleItemHeight);
     }
 
-    public void setMaxListHeightInPx(int heightInPx){
+    public void setMaxListHeightInPx(int heightInPx) {
         mSlidingListView.setMaxListHeightInPx(heightInPx);
     }
 
@@ -218,19 +218,8 @@ public class ExpandableSearchView extends BaseView {
         mSlidingListView.collapseList();
     }
 
-    private static class SlidingListViewImpl extends SlidingListView{
-
-        public SlidingListViewImpl(Context context) {
-            super(context);
-        }
-
-        public SlidingListViewImpl(Context context, AttributeSet attrs) {
-            super(context, attrs);
-        }
-
-        public SlidingListViewImpl(Context context, AttributeSet attrs, int defStyleAttr) {
-            super(context, attrs, defStyleAttr);
-        }
+    private SlidingListView provideSlidingListView() {
+        return new SlidingListView(getContext(), mAttributeSet) {
+        };
     }
-
 }
