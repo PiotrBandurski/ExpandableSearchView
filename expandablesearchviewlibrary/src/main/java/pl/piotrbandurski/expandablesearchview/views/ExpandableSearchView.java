@@ -43,6 +43,57 @@ public class ExpandableSearchView extends BaseView {
         setupListeners();
     }
 
+    public void setOnListItemSelectedListener(OnListItemSelectedListener mOnListItemSelectedListener) {
+        this.mOnListItemSelectedListener = mOnListItemSelectedListener;
+    }
+
+    public void setOnQueryTextEnterListener(OnQueryTextEnterListener mOnQueryTextEnterListener) {
+        this.mOnQueryTextEnterListener = mOnQueryTextEnterListener;
+    }
+
+    public void setSearchText(String text) {
+        mSearchEditText.setText(text);
+    }
+
+    public void setSearchHint(String hint) {
+        mSearchEditText.setHint(hint);
+    }
+
+    public void setSearchIcon(Drawable icon) {
+        mIconImageView.setImageDrawable(icon);
+    }
+
+    public void setSlidingDuration(int slidingDuration) {
+        mSlidingListView.setSlidingDuration(slidingDuration);
+    }
+
+    public void setSingleItemHeight(int singleItemHeight) {
+        mSlidingListView.setSingleItemHeight(singleItemHeight);
+    }
+
+    public void setMaxListHeightInPx(int heightInPx) {
+        mSlidingListView.setMaxListHeightInPx(heightInPx);
+    }
+
+    public void setOnListStateChangeListener(OnListStateChangeListener onListStateChangeListener) {
+        mSlidingListView.setOnListStateChangeListener(onListStateChangeListener);
+    }
+
+    public <T> void setListViewAdapter(ArrayAdapter<T> adapter) {
+        mSlidingListView.setAdapter(adapter);
+        mSlidingListView.wrapList();
+    }
+
+    public void expandListView() {
+        isListOpened = true;
+        mSlidingListView.wrapList();
+    }
+
+    public void collapseListView() {
+        isListOpened = false;
+        mSlidingListView.collapseList();
+    }
+
     //I'm not using any binding libraries like ButterKnife
     //in this project to save number of methods
     @Override
@@ -165,57 +216,6 @@ public class ExpandableSearchView extends BaseView {
             mSearchContainer.setBackgroundDrawable(background);
         }
         typedArray.recycle();
-    }
-
-    public void setOnListItemSelectedListener(OnListItemSelectedListener mOnListItemSelectedListener) {
-        this.mOnListItemSelectedListener = mOnListItemSelectedListener;
-    }
-
-    public void setOnQueryTextEnterListener(OnQueryTextEnterListener mOnQueryTextEnterListener) {
-        this.mOnQueryTextEnterListener = mOnQueryTextEnterListener;
-    }
-
-    public void setSearchText(String text) {
-        mSearchEditText.setText(text);
-    }
-
-    public void setSearchHint(String hint) {
-        mSearchEditText.setHint(hint);
-    }
-
-    public void setSearchIcon(Drawable icon) {
-        mIconImageView.setImageDrawable(icon);
-    }
-
-    public void setSlidingDuration(int slidingDuration) {
-        mSlidingListView.setSlidingDuration(slidingDuration);
-    }
-
-    public void setSingleItemHeight(int singleItemHeight) {
-        mSlidingListView.setSingleItemHeight(singleItemHeight);
-    }
-
-    public void setMaxListHeightInPx(int heightInPx) {
-        mSlidingListView.setMaxListHeightInPx(heightInPx);
-    }
-
-    public void setOnListStateChangeListener(OnListStateChangeListener onListStateChangeListener) {
-        mSlidingListView.setOnListStateChangeListener(onListStateChangeListener);
-    }
-
-    public <T> void setListViewAdapter(ArrayAdapter<T> adapter) {
-        mSlidingListView.setAdapter(adapter);
-        mSlidingListView.wrapList();
-    }
-
-    public void expandListView() {
-        isListOpened = true;
-        mSlidingListView.wrapList();
-    }
-
-    public void collapseListView() {
-        isListOpened = false;
-        mSlidingListView.collapseList();
     }
 
     private SlidingListView provideSlidingListView() {

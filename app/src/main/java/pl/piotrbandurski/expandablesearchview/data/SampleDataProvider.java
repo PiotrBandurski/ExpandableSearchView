@@ -23,19 +23,12 @@ public class SampleDataProvider {
         }
         sampleDataObjects = new ArrayList<>();
         sampleDataObjects.add(new SampleDataObject("warsaw", getRandomDrawable()));
-//        sampleDataObjects.add(new SampleDataObject("warsaw", getRandomDrawable()));
         sampleDataObjects.add(new SampleDataObject("warsaw1", getRandomDrawable()));
-//        sampleDataObjects.add(new SampleDataObject("warsaw1", getRandomDrawable()));
         sampleDataObjects.add(new SampleDataObject("warsaw12", getRandomDrawable()));
-//        sampleDataObjects.add(new SampleDataObject("warsaw12", getRandomDrawable()));
         sampleDataObjects.add(new SampleDataObject("warsaw123", getRandomDrawable()));
-//        sampleDataObjects.add(new SampleDataObject("warsaw123", getRandomDrawable()));
         sampleDataObjects.add(new SampleDataObject("warsaw1234", getRandomDrawable()));
-//        sampleDataObjects.add(new SampleDataObject("warsaw1234", getRandomDrawable()));
         sampleDataObjects.add(new SampleDataObject("warsaw12345", getRandomDrawable()));
-//        sampleDataObjects.add(new SampleDataObject("warsaw12345", getRandomDrawable()));
         sampleDataObjects.add(new SampleDataObject("warsaw123456", getRandomDrawable()));
-//        sampleDataObjects.add(new SampleDataObject("warsaw123456", getRandomDrawable()));
 
         return sampleDataObjects;
     }
@@ -60,6 +53,5 @@ public class SampleDataProvider {
         int randomIndex = new Random().nextInt(drawables.length - 1);
         return drawables[randomIndex];
     }
-
 
 }
